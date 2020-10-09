@@ -3,10 +3,10 @@
   <%= render 'dashboard/student' %>
 <% else
      if current_user.role == 'ta' %>
-    <h1>ta</h1>
+    <%= render 'dashboard/ta' %>
   <% else
        if current_user.role == 'teacher' %>
-      <h1>teacher</h1>
+      <%= render 'dashboard/teacher' %>
     <% end %>
   <% end %>
 <% end %>

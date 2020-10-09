@@ -6,8 +6,16 @@
     <h2>Comments</h2>
     <%= render doubt.comments %>
 
-    <h2>Add a comment</h2>
-    <% @doubt = doubt %>
-    <%= render 'comments/form' %>
+    <% if current_user.role == 'student' %>
+      <h2>Add a comment</h2>
+      <% @doubt = doubt %>
+      <%= render 'comments/form' %>
+    <% else
+         if current_user.role == 'ta' %>
+        <% unless doubt.accepted %>
+          <%= button_to 'Accept', doubt_accept_path(doubt), method: :patch %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </li>

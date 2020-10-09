@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :doubts do
     resources :comments
+
+    patch 'accept', to: 'doubts#accept'
+    patch 'escalate', to: 'doubts#escalate'
+    patch 'resolve', to: 'doubts#resolve'
   end
 end
