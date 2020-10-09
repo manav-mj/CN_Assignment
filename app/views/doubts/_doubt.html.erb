@@ -13,7 +13,7 @@
     <% else
          if current_user.role == 'ta' %>
         <% unless doubt.accepted %>
-          <%= button_to 'Accept', doubt_accept_path(doubt), method: :patch %>
+          <%= button_to 'Accept', doubt_accept_path(doubt), method: :patch, class: 'solid-button' %>
         <% end %>
       <% end %>
     <% end %>

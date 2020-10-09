@@ -1,23 +1,23 @@
-<div>
-  <div>
-    <%= Doubt.all.count %><br>
-    Doubts Asked
-  </div>
-  <div>
-    <%= Doubt.where(resolved: true).count %><br>
-    Doubts Resolved
-  </div>
-  <div>
-    <%= Doubt.where(escalated: true).count %><br>
-    Doubts Escalated
-  </div>
-  <div>
-    <%= (Doubt.where(resolved: true).average('resolution_time') || 0) / 60 %>min<br>
-    Average Doubts Resolution Time
-  </div>
-
+<div class="stats-container">
+    <div class="stats-item" style="margin-left: 0px">
+      <h3><%= Doubt.all.count %></h3><br>
+      Doubts Asked
+    </div>
+    <div class="stats-item">
+      <h3><%= Doubt.where(resolved: true).count %></h3><br>
+      Doubts Resolved
+    </div>
+    <div class="stats-item">
+      <h3><%= Doubt.where(escalated: true).count %></h3><br>
+      Doubts Escalated
+    </div>
+    <div class="stats-item">
+      <h3><%= (Doubt.where(resolved: true).average('resolution_time') || 0) / 60 %> min</h3><br>
+      Average Doubts Resolution Time
+    </div>
 </div>
 
-<ul>
+<ul class="ta-list">
+  TA's Report<br><br>
   <%= render User.where(role: 'ta') || User.new %>
 </ul>

@@ -13,3 +13,106 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+body {
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+}
+
+.solid-button {
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    padding: .5em 1em;
+    border: none;
+    min-width: 90px;
+    min-height: 35px;
+    margin-bottom: 10px;
+}
+
+.solid-button:hover {
+    background-color: darkblue;
+}
+
+.outline-button {
+    border-radius: 5px;
+    border: blue;
+    background-color: transparent;
+    border-style: solid inset;
+    border-width: 1px;
+    padding: .5em 1em;
+    min-width: 90px;
+    min-height: 35px;
+    margin-bottom: 10px;
+    color: blue;
+}
+
+.outline-button:hover {
+    background-color: blue;
+    color: white;
+}
+
+.container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    vertical-align: center;
+}
+
+form input, form select {
+    margin-bottom: 15px;
+    min-height: 30px;
+    margin-top: 7px;
+    min-width: 200px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.stats-container {
+    width: 100%;
+    min-height: 200px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.stats-item {
+    padding: 50px 50px;
+    text-align: center;
+    margin-left: 30px;
+    background-color: #dfe6ed;
+    border-radius: 5px;
+    border: dimgray 2px solid;
+}
+
+.ta-list {
+    list-style-type:none;
+    margin-top: 30px;
+    background-color: #dfe6ed;
+    border-radius: 5px;
+    border: dimgray 2px solid;
+    padding: 20px;
+}
+
+.ta-list>li {
+    padding: 20px;
+    background-color: white;
+    border: lightslategrey 2px solid;
+}

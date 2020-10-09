@@ -10,4 +10,4 @@
   <%= f.text_area :solution %><br>
   <%= f.submit 'Resolve Doubt' %>
 <% end %>
-<%= button_to 'Escalate', doubt_escalate_path(@doubt.id), method: :patch %>
+<%= button_to 'Escalate', doubt_escalate_path(@doubt.id), method: :patch, class: 'solid-button' %>
