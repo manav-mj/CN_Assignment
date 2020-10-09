@@ -8,9 +8,8 @@
     </div>
     <% if @doubt.comments.count > 0 %>
       <div class="sub-content">
-        <%= @doubt.comments.count + " " + pluralize(@doubt.comments.count, 'Comment') %><br>
+        <%= pluralize(@doubt.comments.count, 'Comment') %><br>
         <%= render @doubt.comments %>
-        <% @doubt = doubt %>
       </div>
     <% end %>
   </div>
