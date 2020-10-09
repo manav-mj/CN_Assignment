@@ -1,0 +1,23 @@
+<div>
+  <div>
+    <%= Doubt.all.count %><br>
+    Doubts Asked
+  </div>
+  <div>
+    <%= Doubt.where(resolved: true).count %><br>
+    Doubts Resolved
+  </div>
+  <div>
+    <%= Doubt.where(escalated: true).count %><br>
+    Doubts Escalated
+  </div>
+  <div>
+    <%= Doubt.where(resolved: true).average('resolution_time') %>min<br>
+    Average Doubts Resolution Time
+  </div>
+
+</div>
+
+<ul>
+  <%= render User.where(role: 'ta') %>
+</ul>

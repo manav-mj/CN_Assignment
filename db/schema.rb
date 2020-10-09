@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201009082604) do
+ActiveRecord::Schema.define(version: 20201009093258) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -32,11 +32,29 @@ ActiveRecord::Schema.define(version: 20201009082604) do
     t.datetime "resolved_on"
     t.boolean "escalated", default: false
     t.integer "user_id"
+    t.text "solution"
+    t.bigint "activity_time"
+    t.bigint "resolution_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "solution"
     t.index ["resolved_by_id"], name: "index_doubts_on_resolved_by_id"
     t.index ["user_id"], name: "index_doubts_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "doubt_id"
+    t.boolean "accept", default: false
+    t.boolean "escalate", default: false
+    t.boolean "resolve", default: false
+    t.datetime "accept_time"
+    t.datetime "escalate_time"
+    t.datetime "resolve_time"
+    t.bigint "activity_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doubt_id"], name: "index_events_on_doubt_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

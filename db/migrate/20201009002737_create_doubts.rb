@@ -10,6 +10,9 @@ class CreateDoubts < ActiveRecord::Migration[5.1]
       t.timestamp :resolved_on
       t.boolean :escalated, default: false
       t.references :user, foreign_key: true
+      t.text :solution
+      t.bigint :activity_time
+      t.bigint :resolution_time
 
       t.timestamps
     end
