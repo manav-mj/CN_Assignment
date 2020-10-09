@@ -1,0 +1,14 @@
+<h1>You have access to this page, <%= current_user.username %></h1>
+<% if current_user.role == 'student' %>
+  <%= render 'dashboard/student' %>
+<% else
+     if current_user.role == 'ta' %>
+    <h1>ta</h1>
+  <% else
+       if current_user.role == 'teacher' %>
+      <h1>teacher</h1>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= button_to 'Logout', logout_path, method: :post %>

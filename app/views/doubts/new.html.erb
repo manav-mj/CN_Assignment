@@ -1,0 +1,29 @@
+<h1>New Doubt</h1>
+
+<%= form_with model: @doubt, local: true do |form| %>
+  <% if @doubt.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@doubt.errors.count, "error") %> prohibited from creating the article
+      </h2>
+      <ul>
+        <% @doubt.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Go back', root_path %>
