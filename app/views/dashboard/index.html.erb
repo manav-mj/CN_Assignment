@@ -1,4 +1,4 @@
-<h1>Welcome back, <%= current_user.username %></h1>
+<h1><%= current_user.role.titleize %>'s Dashboard</h1>
 <% if current_user.role == 'student' %>
   <%= render 'dashboard/student' %>
 <% else

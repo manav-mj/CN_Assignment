@@ -10,7 +10,9 @@ class DoubtsController < ApplicationController
   end
 
   def show
-    @doubt = Doubt.find(params[:id])
+    unless @doubt
+      redirect_to root_path
+    end
   end
 
   def accept
@@ -20,7 +22,7 @@ class DoubtsController < ApplicationController
       @doubt.accepted_on = Time.now
       @doubt.save
 
-      # Event.create(user_id: current_user.id, doubt_id: @doubt.id, accept: true, accept_time: Time.now.to_i)
+      Event.create(user_id: current_user.id, doubt_id: @doubt.id, event_type: Event.types[:accepted])
 
       render 'show'
     end
@@ -36,10 +38,7 @@ class DoubtsController < ApplicationController
       @doubt.activity_time = @doubt.resolved_on - @doubt.accepted_on
       @doubt.save
 
-      # @event = Event.where(["user_id = :user and doubt_id = :doubt", {user: current_user.id, doubt: @doubt.id}]).order(created_at: :desc)
-      # @event[0].resolve = true
-      # @event[0].resolve_time = @doubt.resolved_on
-      # @event[0].save
+      Event.create(user_id: current_user.id, doubt_id: @doubt.id, event_type: Event.types[:resolved])
 
       redirect_to root_path
     end
@@ -52,11 +51,7 @@ class DoubtsController < ApplicationController
       @doubt.accepted = false
       @doubt.save
 
-      # @event = Event.where(["user_id = :user and doubt_id = :doubt", {user: current_user.id, doubt: @doubt.id}]).order(created_at: :desc)
-      # puts @event.inspect
-      # @event[0].escalate = true
-      # @event[0].escalate_time = Time.now.to_i
-      # @event[0].save
+      Event.create(user_id: current_user.id, doubt_id: @doubt.id, event_type: Event.types[:escalated])
 
       redirect_to root_path
     end

@@ -44,13 +44,7 @@ ActiveRecord::Schema.define(version: 20201009093258) do
   create_table "events", force: :cascade do |t|
     t.integer "user_id"
     t.integer "doubt_id"
-    t.boolean "accept", default: false
-    t.boolean "escalate", default: false
-    t.boolean "resolve", default: false
-    t.datetime "accept_time"
-    t.datetime "escalate_time"
-    t.datetime "resolve_time"
-    t.bigint "activity_time"
+    t.string "event_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doubt_id"], name: "index_events_on_doubt_id"

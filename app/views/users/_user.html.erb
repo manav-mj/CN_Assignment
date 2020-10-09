@@ -1,6 +1,9 @@
 <li>
   <div class="list-item">
     <strong><%= user.username %></strong><br>
-    <%= user.role %>
+    Accepted doubts: <%= Event.where(user_id: user.id, event_type: Event.types[:accepted]).count %>&nbsp|&nbsp
+    Doubts Resolved: <%= Event.where(user_id: user.id, event_type: Event.types[:resolved]).count %>&nbsp|&nbsp
+    Doubts Escalated: <%= Event.where(user_id: user.id, event_type: Event.types[:escalated]).count %>&nbsp|&nbsp
+    Avg Activity Time: <%= (Doubt.where(resolved_by_id: user.id).average('activity_time') || 0) / 60 %> min
   </div>
 </li>

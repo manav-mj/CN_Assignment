@@ -12,12 +12,12 @@
     Doubts Escalated
   </div>
   <div>
-    <%= Doubt.where(resolved: true).average('resolution_time') %>min<br>
+    <%= (Doubt.where(resolved: true).average('resolution_time') || 0) / 60 %>min<br>
     Average Doubts Resolution Time
   </div>
 
 </div>
 
 <ul>
-  <%= render User.where(role: 'ta') %>
+  <%= render User.where(role: 'ta') || User.new %>
 </ul>
