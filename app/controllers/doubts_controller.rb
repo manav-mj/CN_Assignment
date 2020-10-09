@@ -1,4 +1,7 @@
 class DoubtsController < ApplicationController
+  before_action :permission_denied
+  skip_before_action :permission_denied, only: [:new, :create]
+
   def new
     @doubt = Doubt.new
   end
@@ -61,5 +64,13 @@ class DoubtsController < ApplicationController
 
   def doubt_params
     params.require(:doubt).permit(:title, :body)
+  end
+
+  def permission_denied
+    if current_user.role == 'student'
+      render json: {
+          message: 'User is not authorized'
+      }, status: :unauthorized
+    end
   end
 end
