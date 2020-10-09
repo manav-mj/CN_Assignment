@@ -2,6 +2,12 @@
   <div class="doubt-item">
     <strong><%= doubt.title %></strong><br>
     <%= doubt.body %><br>
-    <%= link_to 'comment' %><br>
+
+    <h2>Comments</h2>
+    <%= render doubt.comments %>
+
+    <h2>Add a comment</h2>
+    <% @doubt = doubt %>
+    <%= render 'comments/form' %>
   </div>
 </li>

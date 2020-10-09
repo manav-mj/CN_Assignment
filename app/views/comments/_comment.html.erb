@@ -1,0 +1,7 @@
+<div class="comment-item">
+  <strong><%= User.find(comment.user_id).username %></strong><br>
+  <%= comment.body %>
+  <p>
+    <%= link_to 'Delete', [comment.doubt, comment], method: :delete, data: {confirm: "Do you really want to delete the comment"} %>
+  </p>
+</div>

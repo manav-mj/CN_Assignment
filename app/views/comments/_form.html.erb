@@ -1,0 +1,7 @@
+<%= form_with model: [@doubt, @doubt.comments.build], local: true do |form| %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <%= form.submit %>
+<% end %>
