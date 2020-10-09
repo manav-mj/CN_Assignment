@@ -1,13 +1,28 @@
-<h1>Doubt</h1>
-<h2><%= @doubt.title %></h2>
-<%= @doubt.body %>
-<% if @doubt.comments.count > 0 %>
-  <h2>Comments</h2>
-<% end %>
-<%= render @doubt.comments %>
-<%= form_with model: @doubt, url: doubt_resolve_path(@doubt.id), local: true do |f| %>
-  <%= f.label :solution %><br>
-  <%= f.text_area :solution %><br>
-  <%= f.submit 'Resolve Doubt' %>
-<% end %>
-<%= button_to 'Escalate', doubt_escalate_path(@doubt.id), method: :patch, class: 'solid-button' %>
+<h1>Solve Doubts</h1>
+<div class="doubt-column">
+  <div class="doubt-item compact">
+    <div class="content">
+      <h3><%= @doubt.title %></h3>
+      <p><%= @doubt.body %></p>
+      <p class="timestamp">Asked By: <%= @doubt.user.username.titleize %> on <%= @doubt.created_at %></p>
+    </div>
+    <% if @doubt.comments.count > 0 %>
+      <div class="sub-content">
+        <%= @doubt.comments.count + " " + pluralize(@doubt.comments.count, 'Comment') %><br>
+        <%= render @doubt.comments %>
+        <% @doubt = doubt %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="solution-container">
+    <div class="solution-content">
+      <%= form_with model: @doubt, url: doubt_resolve_path(@doubt.id), local: true do |f| %>
+        <%= f.label :answer %><br>
+        <%= f.text_area :solution, placeholder: 'Answer', class: 'comment-area' %><br>
+        <%= f.submit 'Resolve Doubt', class: 'solid-button' %>
+      <% end %>
+    </div>
+    <%= button_to 'Escalate', doubt_escalate_path(@doubt.id), method: :patch, class: 'outline-button' %>
+  </div>
+</div>

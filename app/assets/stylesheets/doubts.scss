@@ -1,3 +1,65 @@
 // Place all the styles related to the doubts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.doubt-item {
+  margin: 20px;
+  border: dimgray 2px solid;
+  background-color: #c3cfd9;
+  position: relative;
+}
+
+.doubt-item > .content, .doubt-item > .sub-content {
+  padding: 20px;
+}
+
+.doubt-item > .sub-content {
+  border-top: dimgray 2px solid;
+}
+
+.timestamp {
+  font-size: 14px;
+  text-align: right;
+  color: lightslategrey;
+}
+
+.doubt-form {
+  margin: 20px;
+  width: 80%;
+  background-color: #dfe6ed;
+  padding: 20px;
+  border-radius: 5px;
+  border: lightslategrey 2px solid;
+}
+
+.outline-button.accept {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+  left: auto;
+}
+
+.doubt-column {
+  margin: 0px 20px;
+  min-height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.doubt-item.compact {
+  width: 100%;
+  margin: 0px;
+}
+
+.solution-container {
+  margin-left: 30px;
+  min-width: 30%;
+}
+
+.solution-container > .solution-content {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #dfe6ed;
+  border: lightslategrey 2px solid;
+}

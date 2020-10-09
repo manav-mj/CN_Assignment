@@ -30,6 +30,7 @@ body {
     min-width: 90px;
     min-height: 35px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .solid-button:hover {
@@ -47,6 +48,8 @@ body {
     min-height: 35px;
     margin-bottom: 10px;
     color: blue;
+    background-color: #F7F7F7;
+    cursor: pointer;
 }
 
 .outline-button:hover {
@@ -55,6 +58,7 @@ body {
 }
 
 .container {
+    position: relative;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -80,7 +84,7 @@ form input, form select {
 }
 
 .stats-container {
-    width: 100%;
+    margin: 0px 20px;
     min-height: 200px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -89,7 +93,7 @@ form input, form select {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -103,16 +107,43 @@ form input, form select {
 }
 
 .ta-list {
-    list-style-type:none;
-    margin-top: 30px;
+    list-style-type: none;
+    margin: 30px 20px;
     background-color: #dfe6ed;
     border-radius: 5px;
     border: dimgray 2px solid;
     padding: 20px;
 }
 
-.ta-list>li {
+.ta-list > li {
     padding: 20px;
     background-color: white;
     border: lightslategrey 2px solid;
+}
+
+.doubt-list {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 10px;
+}
+
+h3 {
+    margin: 10px 0px;
+}
+
+h1 {
+    margin-left: 20px;
+}
+
+.comment-area {
+    width: 100%;
+    border-radius: 5px;
+    border: lightslategrey 2px solid;
+    margin: 0px;
+    margin-right: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
 }

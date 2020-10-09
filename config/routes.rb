@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :doubts do
     resources :comments
 
-    patch 'accept', to: 'doubts#accept'
+    get 'accept', to: 'doubts#accept'
     patch 'escalate', to: 'doubts#escalate'
     patch 'resolve', to: 'doubts#resolve'
   end

@@ -1,6 +1,6 @@
 <h1>New Doubt</h1>
-
-<%= form_with model: @doubt, local: true do |form| %>
+<div class="doubt-form">
+<%= form_with model: @doubt, local: true do |form|%>
   <% if @doubt.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -15,15 +15,16 @@
   <% end %>
   <p>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder:'Title' %>
   </p>
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.label :description %><br>
+    <%= form.text_area :body, class:"comment-area", placeholder:'Add Comment'%>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit 'Submit New Doubt', class:'solid-button' %>
   </p>
 <% end %>
 
-<%= link_to 'Go back', root_path %>
+</div>
+<%= button_to 'Go Back', root_path, class:'outline-button', style:'margin-left:20px;', method: :get %>

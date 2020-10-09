@@ -1,21 +1,24 @@
 <li>
   <div class="doubt-item">
-    <strong><%= doubt.title %></strong><br>
-    <%= doubt.body %><br>
-
-    <h2>Comments</h2>
-    <%= render doubt.comments %>
-
-    <% if current_user.role == 'student' %>
-      <h2>Add a comment</h2>
-      <% @doubt = doubt %>
-      <%= render 'comments/form' %>
-    <% else
-         if current_user.role == 'ta' %>
+    <div class="content">
+      <h3><%= doubt.title %></h3>
+      <% if current_user.role == 'student' %>
+        <p><%= doubt.body %></p>
+        <p class="timestamp">Asked By: <%= doubt.user.username.titleize %> on <%= doubt.created_at %></p>
+      <% end %>
+      <% if current_user.role == 'ta' %>
         <% unless doubt.accepted %>
-          <%= button_to 'Accept', doubt_accept_path(doubt), method: :patch, class: 'solid-button' %>
+          <%= button_to 'Accept', doubt_accept_path(doubt), method: :get, class: 'outline-button accept' %>
         <% end %>
       <% end %>
+    </div>
+    <% if current_user.role == 'student' %>
+      <div class="sub-content">
+        Comments<br>
+        <%= render doubt.comments %>
+        <% @doubt = doubt %>
+        <%= render 'comments/form' %>
+      </div>
     <% end %>
   </div>
 </li>
