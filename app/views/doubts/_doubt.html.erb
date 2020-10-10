@@ -1,9 +1,21 @@
 <li>
   <div class="doubt-item">
     <div class="content">
-      <h3><%= doubt.title %></h3>
+      <h3 style="margin-right: 200px"><%= doubt.title %></h3>
       <% if current_user.role == 'student' %>
         <p><%= doubt.body %></p>
+      <% end %>
+      <% if doubt.resolved %>
+        <div class="tag">
+          Resolved
+        </div>
+
+        <div>
+          <strong>Answered: </strong>doubt.solution<br>
+          Answered by <%= User.find(doubt.resolved_by_id).username.titleize %> on <%= doubt.resolved_on %>
+        </div>
+      <% end %>
+      <% if current_user.role == 'student' %>
         <p class="timestamp">Asked By: <%= doubt.user.username.titleize %> on <%= doubt.created_at %></p>
       <% end %>
       <% if current_user.role == 'ta' %>
@@ -14,7 +26,7 @@
     </div>
     <% if current_user.role == 'student' %>
       <div class="sub-content">
-        Comments<br>
+        <%= pluralize(doubt.comments.count, 'Comment') %><br>
         <%= render doubt.comments %>
         <% @doubt = doubt %>
         <%= render 'comments/form' %>

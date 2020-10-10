@@ -14,8 +14,6 @@
  *= require_self
  */
 
-@import "bootstrap";
-
 body {
     font-size: 18px;
     font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
@@ -127,6 +125,10 @@ form input, form select {
     margin-top: 10px;
 }
 
+h1 {
+    line-height: 100px;
+}
+
 h3 {
     margin: 10px 0px;
 }
@@ -146,4 +148,14 @@ h1 {
 ul {
     list-style-type: none;
     padding: 0px;
+}
+
+.tag {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    bottom: auto;
+    left: auto;
+    background-color: rgba(220, 20, 60, 0.5);
+    padding: .5em 1em;
 }
