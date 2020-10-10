@@ -1,4 +1,5 @@
 <%= button_to 'Raise Doubt', new_doubt_path, method: :get, class: 'solid-button', style:'margin-left:20px;' %>
 <ul class="doubt-list">
-  <%= render Doubt.all %>
+  <%= render Doubt.where(resolved: false) %>
+  <%= render Doubt.where(resolved: true) %>
 </ul>

@@ -39,6 +39,7 @@ class DoubtsController < ApplicationController
       @doubt.resolved_on = Time.now
       @doubt.resolution_time = @doubt.resolved_on - @doubt.created_at
       @doubt.activity_time = @doubt.resolved_on - @doubt.accepted_on
+      @doubt.resolved_by_id = current_user.id
       @doubt.save
 
       Event.create(user_id: current_user.id, doubt_id: @doubt.id, event_type: Event.types[:resolved])
